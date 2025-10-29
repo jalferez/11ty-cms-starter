@@ -1,0 +1,6 @@
+node_nodules/
+_site/
+
+.DS_Store
+.env
+.vscode/
