@@ -156,14 +156,16 @@ Push this repository to GitHub and set it to **public or private**.
 2. Click **Add new site → Import an existing project**.
 3. Choose your GitHub repo.
 4. Set:
-   - **Build command:** `npx @11ty/eleventy`
+   - **Build command:** `npm run build`
    - **Publish directory:** `_site`
 5. Deploy the site.
 
 ### Step 3. Enable Netlify Identity
 - Go to your site’s **Identity** tab and click **Enable Identity**.
 - Enable **Git Gateway** under the “Services” section.
+- Change **Registration Preferences** to Invite only
 - Add your email as an approved user.
+- Accept the invite and create a password
 
 ### Step 4. Access the CMS
 Visit:
@@ -171,6 +173,7 @@ Visit:
 https://your-site.netlify.app/admin/
 ```
 You’ll see a login screen for Netlify CMS.
+Use the email you added in the invite and the password you created when accepting the invite to log in.
 
 ---
 
