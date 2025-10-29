@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description or 'A lightweight Eleventy starter with Nunjucks and CMS support.' }}" />
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <!-- "global folder" css -->
+    <link rel="stylesheet" href="/assets/css/global/navbar.css">
+    <link rel="stylesheet" href="/assets/css/global/layout.css">
+    <link rel="stylesheet" href="/assets/css/global/footer.css">
+
+    <!-- will check for specific css file for specific page -->
+    {% if css %}
+    <link rel="stylesheet" href="/assets/css/pages/{{ css }}">
+    {% endif %}
+
+
+
+
+    <!-- Uncomment this and line 46 to enable snipcart. you will have to enter your api key in order to use snipcart/.-->
+    <!-- <script async src="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.js"></script>
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.css" /> -->
+
+</head>
+
+<body>
+    <!-- base.njk. the reasnon for this file is that wtv is in here, it will appear in all pages no matter what. home services about contact unless said otherwise -->
+    <!-- code to include the partials made ex navbar and njk -->
+    {% include "partials/navbar.njk" %}
+
+
+    <main class="content">
+        
+        {{ content | safe }}
+    </main>
+
+   {% include "partials/footer.njk" %}
+
+
+    <!-- For snipcart if you want to use in the future -->
+    <!-- <div hidden id="snipcart" data-api-key="publicapikey"></div> -->
+
+    <!-- DO NOT REMOVE/COMMENT OUT: This enables cms to work properly bc you need to enable ___ on netlify. -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> 
+     <!-- DO NOT REMOVE/COMMENT OUT. Unless you dont want cms for your page -->
+
+    <!-- scripts -->
+    <script src="/assets/js/global/main.js" defer></script>
+
+    <!-- will check specific js for specific page -->
+    {% if js %}
+    <script src="/assets/js/pages/{{ js }}" defer></script>
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: "11ty CMS TEST"
+css: "home.css"
+js: "home.js"
+permalink: "index.html"
+---
+<!-- ^ required permalink in order to use pages folder inside of content. that is how i prefer you can move the pages folder or pages itself somewhere else but you will have to make pathing changes to the config.yml and eleventy js -->
+<!-- both css: "file_name.css" and js: "file_name.js" are needed in order to call the css and js for the page youre on.  -->
+
+<!-- remove in the future, this is for testing and strucutre can be found in one of links in readme file -->
+{% for bread in collections.bread %}
+<div class="bread-card">
+  <img src="{{ bread.data.image }}" alt="{{ bread.data.title }}">
+  <div class="info">
+    <h2>{{ bread.data.title }}</h2>
+    <p>{{ bread.data.price }}</p>
+    <button class="snipcart-add-item"
+      data-item-id="{{ bread.fileSlug }}"
+      data-item-price="{{ bread.data.price | replace("$","") }}"
+      data-item-url="/"
+      data-item-name="{{ bread.data.title }}">
+      Add to Cart
+    </button>
+  </div>
+</div>
+{% endfor %}
